@@ -30,8 +30,10 @@ jobs:
         ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
         IMAGE_TAG: latest
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f6u5s6o4
+        docker build -t qwerty123 .
+        docker tag qwerty123:latest public.ecr.aws/f6u5s6o4/qwerty123:latest
+        docker push public.ecr.aws/f6u5s6o4/qwerty123:latest
 
     - name: Download task definition
       run: |
