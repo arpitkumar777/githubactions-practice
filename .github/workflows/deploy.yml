@@ -50,6 +50,6 @@ jobs:
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: github-action-service
-        cluster: github-action-cluster
+        task-definition: task.json
+        service: sample-fargate-service-bhaoe3zn
+        cluster: qwerty
