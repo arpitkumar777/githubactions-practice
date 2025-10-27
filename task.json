@@ -1,0 +1,56 @@
+{
+  "compatibilities": [
+    "EC2",
+    "MANAGED_INSTANCES",
+    "FARGATE"
+  ],
+  "containerDefinitions": [
+    {
+      "command": [
+        "/bin/sh -c \"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\""
+      ],
+      "cpu": 0,
+      "entryPoint": [
+        "sh",
+        "-c"
+      ],
+      "environment": [],
+      "essential": true,
+      "image": "public.ecr.aws/docker/library/httpd:latest",
+      "mountPoints": [],
+      "name": "fargate-app",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "systemControls": [],
+      "volumesFrom": []
+    }
+  ],
+  "cpu": "256",
+  "family": "sample-fargate",
+  "memory": "512",
+  "networkMode": "awsvpc",
+  "placementConstraints": [],
+  "registeredAt": "2025-10-27T07:29:32.329Z",
+  "registeredBy": "arn:aws:sts::947390141947:federated-user/arpit.kumar3@ltimindtree.com",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "revision": 1,
+  "status": "ACTIVE",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:947390141947:task-definition/sample-fargate:1",
+  "volumes": [],
+  "tags": []
+}
