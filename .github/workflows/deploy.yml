@@ -51,5 +51,5 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: task.json
-        service: sample-fargate-service-bhaoe3zn
+        service: my-service
         cluster: qwerty
